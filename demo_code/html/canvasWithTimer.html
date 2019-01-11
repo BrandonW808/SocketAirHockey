@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+- Example shows drawing strings on the canvas and
+  dragging individual strings around with the mouse.
+
+  In this example the HTML elements are not being
+  dragged. The strings are javascript objects.
+
+  When the canvas reacts to the mouse down event
+  other event handlers will be added to the DOM
+  to handle the mouse move and mouse release
+
+  Notice in this source file there are no pre-attached
+  event handlers. They will be added using jQuery in the
+  supporting javascript file.
+
+
+-->
+<html>
+   <head>
+     <title>Air Hockey</title>
+     <script src="jquery-1.11.3.js"></script>
+     <script src="/socket.io/socket.io.js"></script>
+
+      <style>
+         body {
+            background: #dddddd;
+         }
+
+		 /*element selectors: */
+		 canvas {
+		    margin: 20px;
+			/*important here for padding to be 0 for mouse calculations */
+            padding: 0px;
+		 }
+		 /* class selectors: */
+		 .canvas {
+            /*background: url(insert the jpg);*/
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: thin inset #aaaaaa;
+         }
+
+         /*id selectors: */
+
+         #canvas1 {
+         }
+
+
+    #paddlediv1{
+      position: absolute;
+      cursor: move;
+    }
+    #paddlediv2{
+      position: absolute;
+      cursor: move;
+    }
+    #puck{
+      position: absolute;
+      cursor: move;
+    }
+    #score1{
+      position: absolute;
+      top:545px;
+      left:170px;
+      width:100px;
+      height:50px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    #score2{
+      position: absolute;
+      top:545px;
+      left:570px;
+      width:100px;
+      height:50px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    #button1{
+      position: absolute;
+      margin:0 auto;
+      clear:left;
+      top: 600px;
+      left: 375px;
+    }
+
+
+
+
+      </style>
+   </head>
+
+  <body>
+    <div id="paddlediv1"><img src="images/paddleunused.png" id="paddleImg1"></div>
+    <div id="paddlediv2"><img src="images/paddleunused.png" id="paddleImg2"></div>
+    <div id="puck"><img src="images/puck.png"></div>
+    <button onclick="document.getElementById('input1').value = ''" id="button1">Join Game</button>
+    <div id="score1"> P1 Score: </div>
+    <div id="score2"> P2 Score: </div>
+    <img id='background' src = "images/background.jpg"/>
+
+    <script src='canvasWithTimer.js'></script>
+  </body>
+</html>
